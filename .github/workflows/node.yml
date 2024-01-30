@@ -32,6 +32,8 @@ jobs:
           ECR_REPOSITORY: node_app # Replace with your ECR repository name
           IMAGE_TAG: latest # Replace or add more tags as needed
         run: |
+          echo $ECR_REGISTRY
+          echo $ECR_REPOSITORY
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
