@@ -26,15 +26,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build, tag, and push image to Amazon ECR
-        env:
-          ECR_REGISTRY: 074276330927.dkr.ecr.eu-west-2.amazonaws.com
-          ECR_REPOSITORY: node_app # Replace with your ECR repository name
-          IMAGE_TAG: latest # Replace or add more tags as needed
-        run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
@@ -45,3 +36,12 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: 074276330927.dkr.ecr.eu-west-2.amazonaws.com
+          ECR_REPOSITORY: node_app # Replace with your ECR repository name
+          IMAGE_TAG: latest # Replace or add more tags as needed
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
