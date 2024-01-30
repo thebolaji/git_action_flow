@@ -33,9 +33,8 @@ jobs:
           IMAGE_TAG: latest # Replace or add more tags as needed
         run: |
           echo ${{ steps.login-ecr.outputs.registry }}
-        #   echo $ECR_REPOSITORY
-        #   docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        #   docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
     #   - name: Use Node.js
     #     uses: actions/setup-node@v1
