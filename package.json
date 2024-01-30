@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "gitflow",
+  "version": "1.0.0",
+  "main": "ap.js",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  },
+  "scripts": {
+    "start": "node  app.js",
+    "test": "jest",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
